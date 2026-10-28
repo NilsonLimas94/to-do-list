@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <main>
+        <div class="cabecalho">
+            <div class="titulos">
+                <h1>PRODUTIVIDADE PESSOAL</h1>
+                <p>Foco de hoje ✨</p>
+            </div>
+            <div class="tarefas-concluidas">
+                <span>2 de 3 concluídas</span>
+                <div class="barra-porcentagem">
+                    <div class="conclusao"></div>
+            </div>
+        </div>
+
+        <div class="barra-pesquisa">
+            <div class="input-select-button">
+                <input type="text" placeholder="O que você precisa realizar hoje?">
+                <select name="catergoria" id="categoria">
+                    <option value="estudo">📘 Estudo</option>
+                    <option value="alta">🔥 Alta</option>
+                    <option value="design">🎨 Design</option>
+                    <option value="geral">⚡ Geral</option>
+                </select>
+                <button>Adicionar</button>
+            </div>
+        </div>
+
+        <div class="filtro-limpar">
+            <div class="filtro">
+                <span>Todas(3)</span>
+                <span>Pendentes(1)</span>
+                <span>Concluídas(2)</span>
+            </div>
+            <div class="limpar">
+                <span>Limpar</span>
+            </div>
+        </div>
+
+        <div class="historico-tarefa">
+            <div class="tarefa">
+                <input type="checkbox">
+                <p>Publicar projeto no Linkedin com vídeo demo</p>
+                <span>🔥 Alta</span>
+                <span>x</span>
+            </div>
+            <div class="tarefa">
+                <input type="checkbox">
+                <p>Criar layout moderno com Glassmorphism</p>
+                <span>🎨 Design</span>
+                <span>x</span>
+            </div>
+            <div class="tarefa">
+                <input type="checkbox">
+                <p>Estruturar HTML semântico com tas acessíveis</p>
+                <span>📘 Estudo</span>
+                <span>x</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Dica: Pressione [ENTER] para salvar rápido</p>
+            <p>Vanilla JS & CSS</p>
+        </div>
+    </main>
+</body>
+</html>
