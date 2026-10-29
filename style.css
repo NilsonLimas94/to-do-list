@@ -1,0 +1,92 @@
+/* Uso do @import para adicionar a fonte inter como fonte padrão do projeto */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+/* Resete da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'inter', sans-serif;
+    text-decoration: none;
+    color: #E2E8F0;
+}
+
+/* Estilização Global */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #0B0F19 0%, #111827 100%);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    padding: 20px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(26,32,53, .85) 0%, rgba(19,23,38, .95) 100%);
+    border: 1px solid rgba(26,32,53, .85);
+}
+
+/* cabeçalho */
+
+/* Lagargura e organização da div principal do cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Largaura e display da div do lado esquerdo do cabeçalho */
+.titulos {
+    width: 50%;
+}
+
+/* Tamanho, espessura e cor da fonte do tíutlo do cabeçalho */
+.titulos h1 {
+    font-size: 10px;
+    font-weight: bold;
+    color: #818CF8;
+}
+
+/* Tamanho e espessura da fonte do subtítulo */
+.titulos p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Largaura e display da div do lado direito do cabeçalho */
+.tarefas-concluidas {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+/* Tamanho da fonte e cor do texto de tarefas concluídas */
+.tarefas-concluidas span {
+    font-size: 11px;
+    color: #94A3B8;
+}
+
+/* Largura, espessura e cor da barra intera de porcentagem */
+.barra-porcentagem {
+    width: 60%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #1E293B;
+}
+
+/* Largura, espessura e cor linear gradiente da barra que contabiliza o progresso */
+.conclusao {
+    width: 70%;
+    height: 10px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #6366F1 0%, #8B5CF6 100%);
+}
