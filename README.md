@@ -4,6 +4,13 @@ Uma aplicação moderna de gerenciamento de tarefas pessoais desenvolvida com **
 
 ---
 
+## 🌐 Demonstração Online (Deploy)
+
+Acesse a aplicação em produção rodando na Vercel:  
+🔗 **[https://to-do-list-vert-two-57.vercel.app](https://to-do-list-vert-two-57.vercel.app)**
+
+---
+
 ## Demonstração Visual
 
 A interface conta com layout centralizado, superfícies translúcidas com efeito de desfoque (`backdrop-filter: blur`), gradientes refinados em roxo/índigo e controles 100% customizados.
