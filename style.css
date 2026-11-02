@@ -244,50 +244,65 @@ main {
 /* ═══════════════════════════════════════════════════════════
    FILTROS E LIMPAR
    Linha abaixo da barra de adição com os botões de filtro à
-   esquerda e o link "Limpar" à direita, separados por space-between.
+   esquerda e o botão "Limpar" à direita, separados por space-between.
 ════════════════════════════════════════════════════════════ */
-/* Barra de histórico de tarefas (filtro e limpar) */
 .filtro-limpar {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-/* Agrupa os três spans de filtro horizontalmente com espaçamento entre eles */
+/* Agrupa os botões de filtro horizontalmente com espaçamento */
 .filtro {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: #94A3B8;
-    gap: 20px;
+    gap: 12px;
 }
 
-/* Destaque visual do filtro ativo ("Todas" selecionado por padrão).
-   Fundo roxo translúcido + borda sinalizam o estado ativo sem JavaScript ainda. */
+/* Reset e estilo base compartilhado para os botões de filtro e limpar:
+   Remove a aparência nativa dos botões e adiciona transição para o hover */
+.filtro button,
+.limpar button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    color: #94A3B8;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Efeito de zoom suave ao passar o mouse */
+.filtro button:hover,
+.limpar button:hover {
+    transform: scale(1.05); /* Amplia levemente a escala */
+    color: #E2E8F0;
+}
+
+/* Botão do filtro ativo ("Todas" selecionado por padrão):
+   Ganho de destaque visual com fundo translúcido e borda roxa */
 .filtro-todas {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 68px;
-    height: 26px;
-    background-color: rgba(99, 102, 241, 0.25);
-    border: 1px solid #6366F1;
-    border-radius: 5px;
+    padding: 4px 10px;
+    background-color: rgba(99, 102, 241, 0.25) !important;
+    border: 1px solid #6366F1 !important;
+    border-radius: 6px;
     font-weight: bold;
+    color: #C7D2FE !important;
 }
 
-/* Centraliza o botão "Limpar" verticalmente dentro do flex container pai */
+/* Centralização do botão limpar */
 .limpar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 11px;
 }
 
-.filtro-pendentes, .filtro-concluidas, .filtro-limpar {
-    color: #94A3B8;
+/* Estilo específico para o botão Limpar no hover: tom avermelhado sutil */
+.btn-limpar:hover {
+    color: #F43F5E !important;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -307,6 +322,12 @@ main {
     border-radius: 10px;
     margin-bottom: 10px;
     gap: 12px;
+    transition: all 0.3s ease; /* Suaviza mudanças de estado, como hover ou conclusão */
+}
+
+.tarefa:hover {
+    transform: scale(1.02); /* Leve aumento de escala ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); /* Sutil sombra roxa para destacar a tarefa ativa */
 }
 
 /* Customização do checkbox:
@@ -380,6 +401,12 @@ main {
     border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
+.tag-geral {
+    background-color: rgba(16, 185, 129, 0.12); /* Tom verde-esmeralda suave */
+    color: #6EE7B7;
+     border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 /* Botão de remoção da tarefa: discreto em repouso */
 .btn-excluir {
     background: transparent;
@@ -404,12 +431,35 @@ main {
    Classe alternada dinamicamente via JavaScript ao marcar o checkbox.
    Reduz o destaque visual e risca o texto da tarefa finalizada.
 ════════════════════════════════════════════════════════════ */
+/* Espaçamento inferior do histórico de tarefas antes da linha divisória */
 .historico-tarefa {
-    margin-bottom: 100px;
+    max-height: 260px; /* Limita a altura do histórico para evitar overflow */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical se necessário */
+    padding-right: 4px; /* Espaço para a barra de rolagem não sobrepor o conteúdo */
+    margin-bottom: 20px;
+}
+
+/* Scrollbar Customizada Estilo Dark / Saas */
+.historico-tarefa::-webkit-scrollbar {
+    width: 5px; /* Largura da barra de rolagem */
+}
+
+.historico-tarefa::-webkit-scrollbar-track {
+    background: transparent; /* Fundo transparente para não competir com o card */
+}
+
+.historico-tarefa::-webkit-scrollbar-thumb {
+    background-color: #334155; /* Tom roxo translúcido */
+    border-radius: 10px; /* Cantos arredondados da barra de rolagem */
+}
+
+.historico-tarefa::-webkit-scrollbar-thumb:hover {
+    background-color: #6366F1; /* Tom roxo mais intenso ao passar o mouse */
 }
 
 .tarefa.concluida {
     opacity: 0.6; /* Diminui a opacidade do card como um todo */
+    transform: scale(0.98); /* Leve redução de escala para tarefas concluídas */
 }
 
 .tarefa.concluida p {
@@ -417,6 +467,14 @@ main {
     color: #647488;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   RODAPÉ (.footer e linha divisória)
+   A linha separa visualmente a lista de tarefas das informações
+   de atalhos e tecnologia. O flexbox distribui a dica à esquerda
+   e o crédito de desenvolvimento à direita com cor destacada.
+════════════════════════════════════════════════════════════ */
+
+/* Linha divisória horizontal que separa as tarefas do rodapé */
 .linha-divisoria-footer {
     width: 100%;
     height: 2px;
@@ -424,6 +482,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* Container do rodapé: alinha a dica e os créditos nas extremidades */
 .footer {
     display: flex;
     font-size: 11px;
@@ -431,6 +490,7 @@ main {
     color: #64748B;
 }
 
+/* Crédito de tecnologias (Vanilla JS & CSS) com cor de destaque roxa/índigo */
 .texto-direito-footer {
     color: #818CF8;
     font-weight: bold;

@@ -27,12 +27,14 @@
 
             <!-- Lado direito: contador de progresso e barra visual -->
             <div class="tarefas-concluidas">
-                <span>2 de 3 concluídas</span>
+                <!-- ID para atualizar o texto dinamicamente -->
+                <span id="texto-progresso">0 de 0 concluídas</span>
 
                 <!-- Trilho cinza da barra de progresso (fundo) -->
                 <div class="barra-porcentagem">
                     <!-- Preenchimento colorido — a largura em % representa o progresso -->
-                    <div class="conclusao"></div>
+                    <!-- ID para alterar a largura da barra roxa via style.width -->
+                    <div class="conclusao" id="barra-progresso"></div>
                 </div>
             </div>
 
@@ -50,7 +52,7 @@
             <div class="input-select-button">
 
                 <!-- Campo de texto onde o usuário digita a nova tarefa -->
-                <input type="text" placeholder="O que você precisa realizar hoje?">
+                <input type="text" id="input-tarefa" placeholder="O que você precisa realizar hoje?">
 
                 <!-- Grupo Select + Botão agrupados para facilitar o alinhamento com Flexbox -->
                 <div class="select-button">
@@ -64,27 +66,27 @@
                     </select>
 
                     <!-- Botão de envio — o JavaScript escutará o clique neste elemento -->
-                    <button>Adicionar</button>
+                    <button type="button" id="btn-adicionar">Adicionar</button>
 
                 </div>
             </div>
         </div>
         <!-- /BARRA DE ADIÇÃO -->
 
-        <!-- ═══════════════════════════════════════════
+        <!-- ═══════════════════════════════════════════════════════════
              FILTROS + BOTÃO LIMPAR
-             Os spans de filtro serão usados pelo JavaScript para
+             Os botões de filtro serão usados pelo JavaScript para
              mostrar/ocultar tarefas por status (todas, pendentes, concluídas).
              "Limpar" removerá todas as tarefas concluídas de uma vez.
-        ════════════════════════════════════════════ -->
+        ════════════════════════════════════════════════════════════ -->
         <div class="filtro-limpar">
             <div class="filtro">
-                <span class="filtro-todas">Todas (3)</span>
-                <span class="filtro-pendentes">Pendentes (1)</span>
-                <span class="filtro-concluidas">Concluídas (2)</span>
+                <button type="button" class="filtro-todas" id="filtro-todas">Todas (3)</button>
+                <button type="button" class="filtro-pendentes" id="filtro-pendentes">Pendentes (1)</button>
+                <button type="button" class="filtro-concluidas" id="filtro-concluidas">Concluídas (2)</button>
             </div>
             <div class="limpar">
-                <span class="filtro-limpar">Limpar</span>
+                <button type="button" class="btn-limpar" id="btn-limpar">Limpar</button>
             </div>
         </div>
         <!-- /FILTROS -->
@@ -95,31 +97,8 @@
              Estes itens são estáticos por enquanto (mockup visual).
              O JavaScript irá gerar cada .tarefa dinamicamente ao clicar em "Adicionar".
         ════════════════════════════════════════════ -->
-        <div class="historico-tarefa">
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Publicar projeto no Linkedin com vídeo demo</p>
-                <span class="tag tag-alta">🔥 Alta</span>
-                <button class="btn-excluir" type="button">✕</button>
-            </div>
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Criar layout moderno com Glassmorphism</p>
-                <span class="tag tag-design">🎨 Design</span>
-                <button class="btn-excluir" type="button">✕</button>
-            </div>
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Estruturar HTML semântico com tags acessíveis</p>
-                <span class="tag tag-estudo">📘 Estudo</span>
-                <button class="btn-excluir" type="button">✕</button>
-            </div>
-            <div class="tarefa concluida">
-                <input type="checkbox" checked>
-                <p>Continuar o projeto to-do-list</p>
-                <span class="tag tag-design">🔥 Alta</span>
-                <button class="btn-excluir" type="button">✕</button>
-            </div>
+        <div class="historico-tarefa" id="lista-tarefas">
+            <!-- As tarefas serão adicionadas aqui dinamicamente via JavaScript -->
         </div>
         <!-- /LISTA DE TAREFAS -->
 
@@ -136,5 +115,6 @@
         <!-- /RODAPÉ -->
 
     </main>
+    <script src="./script.js"></script>
 </body>
 </html>
