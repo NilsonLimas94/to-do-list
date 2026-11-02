@@ -72,7 +72,7 @@ Como o projeto foi desenvolvido com tecnologias nativas da web, não é necessá
 
 1. Clone o repositório ou baixe os arquivos:
    ```bash
-   git clone https://github.com/SEU-USUARIO/to-do-list.git
+   git clone https://github.com/NilsonLimas94/to-do-list.git
    ```
 2. Abra a pasta do projeto.
 3. Dê dois cliques no arquivo `index.html` para abrir diretamente no seu navegador, ou use uma extensão de servidor local como o **Live Server** no VS Code.
