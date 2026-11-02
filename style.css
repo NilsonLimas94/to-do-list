@@ -165,6 +165,14 @@ main {
     outline: none;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   SELECT DE CATEGORIA (#categoria)
+   appearance: none remove o estilo padrão do navegador, liberando
+   controle total sobre fundo, borda e a seta indicadora.
+   A seta é um SVG inline embutido via background-image — técnica
+   que substitui o ▾ padrão sem precisar de nenhum elemento extra no HTML.
+   transition anima suavemente as mudanças de cor no hover.
+════════════════════════════════════════════════════════════ */
 #categoria {
     width: 95px;
     height: 30px;
@@ -188,20 +196,26 @@ main {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Escurece e intensifica a borda ao passar o mouse — feedback visual de interatividade */
 #categoria:hover {
     background-color: rgba(99, 102, 241, 0.22);
     border-color: rgba(99, 102, 241, 0.6);
 }
 
+/* Remove o contorno azul padrão ao focar no select — mesma razão do input */
 #categoria:focus {
     outline: none;
 }
 
+/* Estiliza o fundo de cada <option> dentro do dropdown aberto.
+   Sem isso, o menu usa o branco padrão do sistema, quebrando o tema dark. */
 #categoria option {
     background-color: #18183b;
     color: #E2E8F0;
 }
 
+/* Agrupa o select e o botão lado a lado com espaçamento uniforme.
+   Flex com gap evita usar margin manual em cada filho. */
 .select-button {
     display: flex;
     align-items: center;
@@ -209,6 +223,8 @@ main {
     gap: 10px;
 }
 
+/* Botão de confirmação com gradiente roxo do projeto.
+   transition + scale no hover cria um feedback tátil de "pressionar". */
 .select-button button {
     width: 90px;
     height: 30px;
@@ -220,6 +236,202 @@ main {
     transition: all .3s linear;
 }
 
+/* Reduz o botão levemente ao passar o mouse, simulando um clique físico */
 .select-button button:hover {
     transform: scale(.95);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FILTROS E LIMPAR
+   Linha abaixo da barra de adição com os botões de filtro à
+   esquerda e o link "Limpar" à direita, separados por space-between.
+════════════════════════════════════════════════════════════ */
+/* Barra de histórico de tarefas (filtro e limpar) */
+.filtro-limpar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Agrupa os três spans de filtro horizontalmente com espaçamento entre eles */
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #94A3B8;
+    gap: 20px;
+}
+
+/* Destaque visual do filtro ativo ("Todas" selecionado por padrão).
+   Fundo roxo translúcido + borda sinalizam o estado ativo sem JavaScript ainda. */
+.filtro-todas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 26px;
+    background-color: rgba(99, 102, 241, 0.25);
+    border: 1px solid #6366F1;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Centraliza o botão "Limpar" verticalmente dentro do flex container pai */
+.limpar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+
+.filtro-pendentes, .filtro-concluidas, .filtro-limpar {
+    color: #94A3B8;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LISTA DE TAREFAS (.tarefa)
+   Estrutura horizontal com Flexbox contendo 4 partes:
+   [ Checkbox customizado ] [ Texto (flex: 1) ] [ Tag/Pill ] [ Botão ✕ ]
+════════════════════════════════════════════════════════════ */
+
+/* Container de cada linha de tarefa */
+.tarefa {
+    display: flex;
+    align-items: center; /* Alinha todos os elementos verticalmente no centro */
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    background-color: rgba(30, 41, 59, 0.4); /* Fundo translúcido integrado ao tema dark */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    gap: 12px;
+}
+
+/* Customização do checkbox:
+   appearance: none remove o visual padrão quadrado do navegador.
+   Permite estilizar com border-radius e background personalizado. */
+.tarefa input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #475569; /* Borda sutil quando desmarcado */
+    border-radius: 5px;          /* Cantos levemente arredondados */
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* Estado ativo: aplica gradiente roxo/índigo ao marcar o checkbox */
+.tarefa input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, #6366f1, #885cf6);
+    border-color: #885cf6;
+}
+
+/* Símbolo de confirmação (✓) renderizado via pseudo-elemento quando marcado */
+.tarefa input[type="checkbox"]:checked::before {
+    content: "✓";
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Texto da tarefa:
+   flex: 1 expande o parágrafo ocupando todo o espaço central restante,
+   empurrando a tag e o botão de exclusão automaticamente para o canto direito. */
+.tarefa p {
+    flex: 1;
+    font-size: 12px;
+    color: #E2E8F0;
+    word-break: break-word; /* Evita que palavras longas quebrem o layout horizontal */
+}
+
+/* Estilo base compartilhado por todas as pílulas de categoria */
+.tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap; /* Impede que o texto da tag quebre em duas linhas */
+}
+
+/* Variações de cor e borda por tipo de categoria */
+.tag-alta {
+    background-color: rgba(245, 158, 11, 0.12); /* Tom âmbar/laranja para urgência */
+    color: #fcd340;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.tag-design {
+    background-color: rgba(148, 163, 184, .12); /* Tom acinzentado neutro */
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, .25);
+}
+
+.tag-estudo {
+    background-color: rgba(99, 102, 241, 0.12); /* Tom roxo/índigo padrão do projeto */
+    color: #A5B4FC;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Botão de remoção da tarefa: discreto em repouso */
+.btn-excluir {
+    background: transparent;
+    border: none;
+    color: #647488;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Feedback de hover: muda para vermelho e ganha leve escala antes do clique */
+.btn-excluir:hover {
+    color: #f43f5e;
+    transform: scale(1.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ESTADO CONCLUÍDO (.tarefa.concluida)
+   Classe alternada dinamicamente via JavaScript ao marcar o checkbox.
+   Reduz o destaque visual e risca o texto da tarefa finalizada.
+════════════════════════════════════════════════════════════ */
+.historico-tarefa {
+    margin-bottom: 100px;
+}
+
+.tarefa.concluida {
+    opacity: 0.6; /* Diminui a opacidade do card como um todo */
+}
+
+.tarefa.concluida p {
+    text-decoration: line-through; /* Linha de tarefa riscada/feita */
+    color: #647488;
+}
+
+.linha-divisoria-footer {
+    width: 100%;
+    height: 2px;
+    background-color: #1E293B;
+    margin-bottom: 10px;
+}
+
+.footer {
+    display: flex;
+    font-size: 11px;
+    justify-content: space-between;
+    color: #64748B;
+}
+
+.texto-direito-footer {
+    color: #818CF8;
+    font-weight: bold;
 }

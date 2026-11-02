@@ -79,12 +79,12 @@
         ════════════════════════════════════════════ -->
         <div class="filtro-limpar">
             <div class="filtro">
-                <span>Todas(3)</span>
-                <span>Pendentes(1)</span>
-                <span>Concluídas(2)</span>
+                <span class="filtro-todas">Todas (3)</span>
+                <span class="filtro-pendentes">Pendentes (1)</span>
+                <span class="filtro-concluidas">Concluídas (2)</span>
             </div>
             <div class="limpar">
-                <span>Limpar</span>
+                <span class="filtro-limpar">Limpar</span>
             </div>
         </div>
         <!-- /FILTROS -->
@@ -96,28 +96,30 @@
              O JavaScript irá gerar cada .tarefa dinamicamente ao clicar em "Adicionar".
         ════════════════════════════════════════════ -->
         <div class="historico-tarefa">
-
             <div class="tarefa">
                 <input type="checkbox">
                 <p>Publicar projeto no Linkedin com vídeo demo</p>
-                <span>🔥 Alta</span>
-                <span>x</span>
+                <span class="tag tag-alta">🔥 Alta</span>
+                <button class="btn-excluir" type="button">✕</button>
             </div>
-
             <div class="tarefa">
                 <input type="checkbox">
                 <p>Criar layout moderno com Glassmorphism</p>
-                <span>🎨 Design</span>
-                <span>x</span>
+                <span class="tag tag-design">🎨 Design</span>
+                <button class="btn-excluir" type="button">✕</button>
             </div>
-
             <div class="tarefa">
                 <input type="checkbox">
                 <p>Estruturar HTML semântico com tags acessíveis</p>
-                <span>📘 Estudo</span>
-                <span>x</span>
+                <span class="tag tag-estudo">📘 Estudo</span>
+                <button class="btn-excluir" type="button">✕</button>
             </div>
-
+            <div class="tarefa concluida">
+                <input type="checkbox" checked>
+                <p>Continuar o projeto to-do-list</p>
+                <span class="tag tag-design">🔥 Alta</span>
+                <button class="btn-excluir" type="button">✕</button>
+            </div>
         </div>
         <!-- /LISTA DE TAREFAS -->
 
@@ -125,9 +127,11 @@
              RODAPÉ
              Informações fixas de apoio ao usuário e crédito de tecnologia.
         ════════════════════════════════════════════ -->
+        <div class="linha-divisoria-footer"></div>
+
         <div class="footer">
             <p>Dica: Pressione [ENTER] para salvar rápido</p>
-            <p>Vanilla JS & CSS</p>
+            <p class="texto-direito-footer">Vanilla JS & CSS</p>
         </div>
         <!-- /RODAPÉ -->
 
