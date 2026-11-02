@@ -4,7 +4,7 @@ Uma aplicação moderna de gerenciamento de tarefas pessoais desenvolvida com **
 
 ---
 
-## 🌐 Demonstração Online (Deploy)
+## Demonstração Online (Deploy)
 
 Acesse a aplicação em produção rodando na Vercel:  
 🔗 **[https://to-do-list-vert-two-57.vercel.app](https://to-do-list-vert-two-57.vercel.app)**
