@@ -1,16 +1,16 @@
-# ⚡ Foco de Hoje — Modern Glassmorphism To-Do List
+# Foco de Hoje — Modern Glassmorphism To-Do List
 
 Uma aplicação moderna de gerenciamento de tarefas pessoais desenvolvida com **HTML5 Semântico**, **CSS3 Avançado** e **Vanilla JavaScript puro**. O projeto adota uma estética **Glassmorphism / Dark Mode** inspirada em produtos SaaS de alta performance (como Linear e Notion), com foco em usabilidade, micro-interações e código limpo.
 
 ---
 
-## 📸 Demonstração Visual
+## Demonstração Visual
 
 A interface conta com layout centralizado, superfícies translúcidas com efeito de desfoque (`backdrop-filter: blur`), gradientes refinados em roxo/índigo e controles 100% customizados.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - **Criação de Tarefas com Categorias:** Adição rápida de itens com suporte a categorias visuais (`🔥 Alta`, `📘 Estudo`, `🎨 Design` e `⚡ Geral`).
 - **Validação de Formulário:** Bloqueio de submissões vazias com limpeza automática do campo e devolução do cursor (`focus`).
@@ -28,7 +28,7 @@ A interface conta com layout centralizado, superfícies translúcidas com efeito
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5:** Estrutura semântica (`<main>`, `<select>`, `<button>`), acessibilidade e organização limpa do DOM.
 - **CSS3:**
@@ -45,7 +45,7 @@ A interface conta com layout centralizado, superfícies translúcidas com efeito
 
 ---
 
-## 📂 Estrutura de Arquivos
+## Estrutura de Arquivos
 
 ```text
 to-do-list/
@@ -59,7 +59,7 @@ to-do-list/
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 Como o projeto foi desenvolvido com tecnologias nativas da web, não é necessário instalar dependências ou gerenciadores de pacotes (`npm`/`yarn`):
 
@@ -72,7 +72,7 @@ Como o projeto foi desenvolvido com tecnologias nativas da web, não é necessá
 
 ---
 
-## 🧠 Aprendizados e Desafios Superados
+## Aprendizados e Desafios Superados
 
 - **Arquitetura de Estado:** Separação entre os dados armazenados na memória/`localStorage` e a renderização visual na tela.
 - **Controle de Fluxo e Usabilidade:** Sincronização entre múltiplos componentes reativos (barra de progresso, abas de filtro e checkboxes).
@@ -80,9 +80,9 @@ Como o projeto foi desenvolvido com tecnologias nativas da web, não é necessá
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
-Desenvolvido por **[Seu Nome]**  
-- **LinkedIn:** [linkedin.com/in/SEU-PERFIL](https://linkedin.com/in/)  
-- **GitHub:** [github.com/SEU-USUARIO](https://github.com/)
+Desenvolvido por **[Nilson Limas Junior]**  
+- **LinkedIn:** [linkedin.com/in/nilsonlimasjunior/](https://linkedin.com/in/nilsonlimasjunior/)  
+- **GitHub:** [github.com/NilsonLimas94](https://github.com/NilsonLimas94)
 
